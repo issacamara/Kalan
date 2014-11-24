@@ -62,7 +62,9 @@ public class User extends Model {
 	
 	@Column(name = "ROLE")
 	public Role role;
-
+	
+	TimeTable table;
+	
 	public User() {
 		super();
 	}
