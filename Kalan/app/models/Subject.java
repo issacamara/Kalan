@@ -17,19 +17,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "T_SUBJECT")
-public class Subject extends Activity {
-
-	/**
-	 * @param start
-	 * @param duration
-	 */
-	public Subject(Date start, Long duration) {
-		super(start, duration);
-	}
-
-	List<Student> students;
-	List<Teacher> teachers;
+@Table(name = "T_SUBJECTS")
+public class Subject {
 
 	@Column(name = "CODE")
 	String code;

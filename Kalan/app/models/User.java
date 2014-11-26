@@ -21,8 +21,7 @@ import play.db.jpa.Model;
  *
  */
 
-@Entity
-@Table(name="T_USERS")
+
 public class User extends Model {
 	
 	@Required(message = "required.user.first_name")
