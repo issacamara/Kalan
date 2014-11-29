@@ -24,6 +24,6 @@ public class Teacher extends User {
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
-	public List<Course> courses;
+	public List<Teacher_Subject> teacher_subjectS;
 
 }

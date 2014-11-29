@@ -35,9 +35,9 @@ public class Subject {
 	public List<TimeSlot> timeslots;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
-	public List<Lesson> lessons;
+	public List<Student_Subject> student_subjectS;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
-	public List<Course> courses;
+	public List<Teacher_Subject> teacher_subjectS;
 
 }

@@ -3,7 +3,11 @@
  */
 package models;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+import play.data.validation.Required;
 
 /**
  * @author IssaCamara
@@ -14,11 +18,23 @@ import javax.persistence.*;
 @Table(name = "T_CURRICULUMS")
 public class Curriculum extends Standard{
 
+	@Required(message = "required.curriculum.code")
+	@Column(name = "CODE")
+	public String code;
+	
+	@Required(message = "required.curriculum.name")
 	@Column(name = "NAME")
-	String name;
-
+	public String name;
+	
 	@Lob
+	@Required(message = "required.curriculum.description")
 	@Column(name = "DESCRIPTION")
-	String description;
+	public String description;
+	
+	@OneToMany(cascade = CascadeType.DETACH, mappedBy = "curriculum")
+	public List<Student> students;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "curriculum")
+	public List<Curriculum_Subject> curriculum_subjectS;
 
 }

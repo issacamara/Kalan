@@ -22,7 +22,7 @@ import play.data.validation.Required;
 @Table(name="T_STUDENTS")
 public class Student extends User {
 
-	@Required(message = "required.eleve.filiere")
+	@Required(message = "required.student.curriculum")
 	@ManyToOne
 	public Curriculum curriculum;
 	
@@ -33,10 +33,11 @@ public class Student extends User {
 	public Teacher tuteur;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
-	public List<Lesson> lessons;
+	public List<Student_Subject> student_subjectS;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
 	public List<Mark> marks;
+	
 
 
 }
