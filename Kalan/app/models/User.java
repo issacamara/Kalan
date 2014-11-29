@@ -22,7 +22,7 @@ import play.db.jpa.Model;
  */
 
 
-public class User extends Model {
+public class User extends Standard {
 	
 	@Required(message = "required.user.first_name")
 	@Column(name = "FIRST_NAME")

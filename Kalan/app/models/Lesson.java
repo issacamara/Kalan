@@ -15,8 +15,8 @@ import javax.persistence.*;
 public class Lesson {
 	
 	@ManyToOne
-	Student std;
+	Student student;
 	
 	@ManyToOne
-	Subject sbt;
+	Subject subject;
 }

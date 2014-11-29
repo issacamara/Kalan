@@ -5,7 +5,10 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -16,6 +19,11 @@ import javax.persistence.Table;
 @Table(name="T_TEACHERS")
 public class Teacher extends User {
 	
-	//List<Subject> subjectsTaught;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	public TimeTable timetable;
+	
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+	public List<Course> courses;
 
 }

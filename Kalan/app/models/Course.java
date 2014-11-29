@@ -11,12 +11,12 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "T_CLASSES")
-public class Class {
+@Table(name = "T_COURSES")
+public class Course extends Standard{
 
 	@ManyToOne
-	Teacher tc;
+	Teacher teacher;
 
 	@ManyToOne
-	Subject sbt;
+	Subject subject;
 }
