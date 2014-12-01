@@ -26,15 +26,15 @@ public class User extends Standard {
 	
 	@Required(message = "required.user.first_name")
 	@Column(name = "FIRST_NAME")
-	public String firstName;
+	public String firstname;
 	
 	@Required(message = "required.user.last_name")
 	@Column(name = "LAST_NAME")
-	public String lastName;
+	public String lastname;
 	
 	@Required(message = "required.user.birthday")
 	@Column(name = "BIRTHDAY")
-	public Date birthDay;
+	public Date birthday;
 	
 	@Required(message = "required.user.eamil")
 	@Unique(message = "unique.user.email")
@@ -67,4 +67,16 @@ public class User extends Standard {
 	public User() {
 		super();
 	}
+
+	public User(String firstname, String lastname, Date birthday, String email,
+			String username, String password) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.birthday = birthday;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+	}
+	
 }
