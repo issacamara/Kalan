@@ -13,8 +13,8 @@ import javax.persistence.Table;
  *
  */
 
-@Entity
-@Table(name = "T_ROLES")
+//@Entity
+//@Table(name = "T_ROLES")
 public class Role {
 
 	public enum RoleEnum {

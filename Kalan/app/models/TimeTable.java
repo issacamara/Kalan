@@ -29,7 +29,7 @@ public class TimeTable extends Standard {
 	public Date endDate;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "timetable")
-	public List<TimeSlot> creneauHoraires;
+	public List<TimeSlot> timeslots;
 	
 	@OneToMany(cascade = CascadeType.DETACH, mappedBy = "timetable")
 	public List<Student> students;

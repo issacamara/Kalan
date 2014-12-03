@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Table(name = "T_ROOMS")
 public class Room extends Standard{
 	
+	@Id
 	String name;
 	
 }

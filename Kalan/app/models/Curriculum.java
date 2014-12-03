@@ -8,7 +8,6 @@ import java.util.List;
 import javax.persistence.*;
 
 import play.data.validation.Required;
-
 /**
  * @author IssaCamara
  *
@@ -17,7 +16,8 @@ import play.data.validation.Required;
 @Entity
 @Table(name = "T_CURRICULUMS")
 public class Curriculum extends Standard{
-
+	
+	@Id
 	@Required(message = "required.curriculum.code")
 	@Column(name = "CODE")
 	public String code;

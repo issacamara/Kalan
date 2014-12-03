@@ -44,13 +44,15 @@ public class Mark extends Standard {
 	@Pattern(regexp = "[0-9]{4}", message = "valid.mark.annee")
 	@Column(name = "YEAR")
 	public String year;
-
+	
+	
 	@Required(message = "required.mark.subject")
-	public Subject sbt;
-
+	@ManyToOne
+	public Subject subject;
+	
 	@Required(message = "required.mark.student")
 	@ManyToOne
-	public Student std;
+	public Student student;
 
 	/**
 *

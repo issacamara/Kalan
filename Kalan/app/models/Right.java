@@ -11,8 +11,8 @@ import javax.persistence.Table;
  *
  */
 
-@Entity
-@Table(name="T_RIGHTS")
+//@Entity
+//@Table(name="T_RIGHTS")
 public class Right {
 	public enum RightEnum {
 		RIGHT_1, RIGHT_2, RIGHT_3, RIGHT_4, RIGHT_5;
