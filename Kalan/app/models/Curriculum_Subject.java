@@ -10,14 +10,12 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="AS_CURRICULUM_SUBECT")
+@Table(name="AS_CURRICULUM_SUBJECT")
 public class Curriculum_Subject extends Standard {
 	
-	@Id
 	@ManyToOne
 	Curriculum curriculum;
 	
-	@Id
 	@ManyToOne
 	Subject subject;
 	

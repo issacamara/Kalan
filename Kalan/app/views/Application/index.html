@@ -1,4 +1,48 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-
-#{welcome /}
+ 
+#{if std}
+    <div class="student">
+        <h2 class="student-title">
+            <a href="#">${std.username}</a>
+        </h2>
+        <div class="student-metadata">
+            <span class="student-name">by ${std.lastname}</span>
+            <span class="student-date">${std.birthday.format('MMM dd')}</span>
+       
+        </div>
+        <div class="student-description">
+            ${std.description.nl2br()}
+        </div>
+    </div>
+    
+    #{if teachers}
+        <div class="teachers">    
+            <h3>Teachers <span class="from">from this blog</span></h3>
+        
+            #{list items:teachers, as:'tch'}
+                <div class="teacher">
+                    <h2 class="teacher-username">
+                        <a href="#">${tch.username}</a>
+                    </h2>
+                    <div class="teacher-metadata">
+                        <span class="teacher-author">
+                            by ${tch.lastname}
+                        </span>
+                        <span class="teacher-date">
+                            ${tch.birthday.format('dd MMM yy')}
+                        </span>
+                    </div>
+                </div>
+            #{/list}
+        </div>
+        
+    #{/if}
+    
+#{/if}
+ 
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}

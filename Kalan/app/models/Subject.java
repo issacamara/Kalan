@@ -25,13 +25,13 @@ public class Subject {
 	
 	@Id
 	@Column(name = "CODE")
-	String code;
+	public String code;
 
 	@Column(name = "DESCRIPTION")
-	String description;
+	public String description;
 	
 	@Column(name="TOTAL_HOURS")
-	Long totalHours;
+	public Long totalHours;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
 	public List<TimeSlot> timeslots;

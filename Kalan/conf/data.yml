@@ -1,0 +1,10 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+models.Student(issa):
+    email: issa@kalan.com
+    password: secret
+    firstname: issa
+    lastname: camara
+    username: icamara
+    birthday: 2014-09-06

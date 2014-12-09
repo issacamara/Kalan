@@ -1,0 +1,22 @@
+*{ Display a Subject in one of these modes: 'student', 'teacher'}*
+ 
+
+<div class="subject ${_as == 'student' ? 'student' : ''}">
+    <h2 class="subject-code">
+        <a href="#">${_subject.code}</a>
+    </h2>
+    <div class="subject-details">
+        <span class="subject-teacher">Teacher: ${_subject.author.fullname}</span>,
+            <span class="subject-teacher">
+                &nbsp;|&nbsp; ${_subject.description} 
+                comment${_subject.comments.size().pluralize()}
+            </span>
+            
+            <span class="subject-description">
+                &nbsp;|&nbsp; ${_subject.comments.size() ?: 'no'} 
+                comment${_subject.comments.size().pluralize()}
+            </span>
+    </div>
+
+</div>
+

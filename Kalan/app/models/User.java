@@ -21,7 +21,7 @@ import play.db.jpa.Model;
  *
  */
 
-
+@MappedSuperclass
 public class User extends Standard {
 	
 	@Required(message = "required.user.first_name")
@@ -61,9 +61,7 @@ public class User extends Standard {
 	
 	@Column(name = "ROLE")
 	public Role role;
-	
-	TimeTable table;
-	
+		
 	public User() {
 		super();
 	}
@@ -79,4 +77,7 @@ public class User extends Standard {
 		this.password = password;
 	}
 	
+	public String toString() {
+	    return email;
+	}
 }

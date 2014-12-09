@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,7 +32,6 @@ public class Teacher extends User {
 	public Teacher(String firstName, String lastName, Date birthDay,
 			String email, String username, String password) {
 		super(firstName, lastName, birthDay, email, username, password);
-		this.save();
 	}
 	
 	

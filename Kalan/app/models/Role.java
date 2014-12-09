@@ -13,21 +13,16 @@ import javax.persistence.Table;
  *
  */
 
-//@Entity
-//@Table(name = "T_ROLES")
-public class Role {
 
-	public enum RoleEnum {
+public enum Role {
+
 		ROLE1(1), ROLE2(2), ROLE3(3), ROLE4(4), ROLE5(5);
 
-		private int level = 10;
+		public int level = 10;
 
-		RoleEnum(int l) {
+		Role(int l) {
 			level = l;
 		}
-	}
 
 	String label;
-	List<Right> rights;
-
 }
