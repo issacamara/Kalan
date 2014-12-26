@@ -1,0 +1,91 @@
+#{extends 'main.html' /}
+
+#{set 'title'}
+&{'apptitle'}
+#{/set}
+
+%{
+    def prevWeek = startOfWeekMidnight.minusWeeks(1);
+    def nextWeek = startOfWeekMidnight.plusWeeks(1);
+}%
+<div class="date">
+    <a href="@{Application.week(prevWeek.year().get(),prevWeek.weekOfWeekyear().get())}">&lt;&lt;</a>
+    <h2>
+        from
+        <strong>
+            ${startOfWeekMidnight.monthOfYear().getAsText(java.util.Locale.ENGLISH)}
+            ${startOfWeekMidnight.dayOfMonth().get()}
+            ${startOfWeekMidnight.year().get()}
+        </strong>
+        to
+        <strong>
+            ${endOfWeek.monthOfYear().getAsText(java.util.Locale.ENGLISH)}
+            ${endOfWeek.dayOfMonth().get()}
+            ${endOfWeek.year().get()}
+        </strong>
+    </h2>
+    <a href="@{Application.week(nextWeek.year().get(),nextWeek.weekOfWeekyear().get())}">&gt;&gt;</a>
+</div>
+
+<p class="addevent">
+    <a href="@{Application.addEventForm}">&{'addevent'}</a>
+</p>
+<div id="week">
+    <div id="weekbackground">
+        <table class="clearboth">
+            <tr>
+                <th class="first"></th>
+                #{list items:1..7, as:'iDoW'}
+                %{
+                    startOfWeekMidnight = startOfWeekMidnight.withDayOfWeek(iDoW);
+                }%
+                <th>
+                    ${startOfWeekMidnight.dayOfWeek().getAsShortText(java.util.Locale.ENGLISH)}.
+                    ${startOfWeekMidnight.dayOfMonth().get()}
+                </th>
+                #{/list}
+            </tr>
+            #{list items:0..23, as:'hours'}
+            #{list items:0..1, as:'half'}
+            %{
+                def minute = half == 0 ? 0 : 30;
+                def classHalf = half == 0 ? "firsthalf" : "secondhalf";
+                def stringHour = String.format("%02d",hours);
+            }%
+            <tr>
+                #{if half == 0}
+                <th class="first" rowspan="2">
+                    ${stringHour}:00
+                </th>
+                #{/if}
+                #{list items:0..6, as:'day'}
+                <td class="${classHalf} #{if day>=5}we#{/if}" hours="${hours}" minutes="${minutes}" dayofweek="${day}"></td>
+                #{/list}
+            </tr>
+            #{/list}
+            #{/list}
+        </table>
+        <div id="weekevents">
+            #{list items:events, as:'event'}
+            <div class="event ${event.getDayClass()} ${event.getHourClass()} ${event.getDuringClass()}">
+                <div class="header">
+                    <span class="hourfrom">
+                        ${event.getFormattedStartAt()}
+                    </span>
+                    -
+                    <span class="hourto">
+                        ${event.getFormattedEndAt()}
+                    </span>
+                </div>
+                <div class="summary">
+                    #{a @Application.delEvent(event.id), class:'delete'}x#{/a}
+                    <a href="@{Application.setEventForm(event.id)}" summary="Modify">${event.summary}</a>
+                </div>
+            </div>
+            #{/list}
+        </div>
+    </div>
+
+
+</div>
+<div class="calendarheight"></div>
